@@ -1,0 +1,10 @@
+INFO:     Started server process [7822]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:56382 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56389 - "OPTIONS /api/feedback HTTP/1.1" 200 OK
+/Users/maxim/my-awesome-project/server.py:209: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "ts": datetime.utcnow().isoformat() + "Z",
+INFO:     127.0.0.1:56389 - "POST /api/feedback HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56469 - "POST /api/feedback HTTP/1.1" 200 OK
