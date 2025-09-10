@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>yanqwip — О нас</title>
+  <meta name="description" content="О yanqwip — сервисе путешествий по твоим правилам: миссия, подход и ценности." />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="yanqwip — О нас" />
+  <meta property="og:description" content="Каждый город — бесконечный квест. Мы даём ключи к маршрутам по твоим интересам." />
+  <meta property="og:image" content="/assets/og-image.svg" />
+  <meta property="og:url" content="https://yanqwip.ru/about.html" />
+  <meta property="og:site_name" content="yanqwip" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" content="#0b0f14" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&family=Unbounded:wght@700;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: { extend: { fontFamily: { sans: ['Inter','ui-sans-serif','system-ui'], poppins: ['Poppins','Inter'], unbounded:['Unbounded','Poppins','Inter'] }, colors: { bg:'#0b0f14' } } }
+    }
+  </script>
+  <link rel="icon" href="../assets/logo.svg" type="image/svg+xml" />
+</head>
+<body class="bg-bg text-slate-200 font-sans">
+  <div class="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
+    <div class="absolute -top-24 -left-24 h-[24rem] w-[24rem] rounded-full bg-fuchsia-600/20 blur-[96px]"></div>
+    <div class="absolute -right-16 top-10 h-[20rem] w-[20rem] rounded-full bg-cyan-400/20 blur-[96px]"></div>
+  </div>
+
+  <header class="sticky top-0 z-50 backdrop-blur-xl bg-white/5 ring-1 ring-white/15">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a class="inline-flex items-center gap-2" href="./index.html" aria-label="yanqwip, на главную">
+        <img class="h-8 w-8 rounded-md object-cover drop-shadow-[0_0_10px_rgba(124,58,237,0.6)]" src="https://i.ibb.co/JWLty2jM/photo-2025-07-01-08-51-19-2.jpg" alt="Логотип yanqwip" />
+        <span class="font-unbounded text-lg font-bold tracking-tight">yanqwip</span>
+      </a>
+      <button class="nav-toggle md:hidden px-3 py-2 rounded-xl bg-slate-900/60 ring-1 ring-white/15 text-slate-100 shadow-lg" aria-label="Открыть меню" aria-expanded="false">☰</button>
+      <nav class="main-nav hidden md:block absolute md:static right-4 top-16 md:top-auto">
+        <ul class="md:flex md:gap-2 bg-slate-900/70 md:bg-transparent p-2 md:p-0 rounded-2xl md:rounded-none ring-1 ring-white/15 md:ring-0">
+          <li><a class="block px-3 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-white/5 hover:ring-1 hover:ring-white/15 transition" href="./index.html">Главная</a></li>
+          <li><a class="block px-3 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-white/5 hover:ring-1 hover:ring-white/15 transition" href="./about.html">О нас</a></li>
+          <li><a class="block px-3 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-white/5 hover:ring-1 hover:ring-white/15 transition" href="./contacts.html">Контакты</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <nav class="max-w-7xl mx-auto px-4 mt-4" aria-label="Хлебные крошки">
+      <ol class="flex gap-2 text-slate-400 text-sm">
+        <li><a class="text-cyan-300 hover:text-cyan-200" href="./index.html">Главная</a></li>
+        <li>→</li>
+        <li>О нас</li>
+      </ol>
+    </nav>
+
+    <section class="py-8">
+      <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-6 items-stretch">
+        <article class="rounded-2xl p-6 bg-white/5 backdrop-blur-xl ring-1 ring-white/15 shadow-xl">
+          <h1 class="font-unbounded text-2xl mb-2">О yanqwip</h1>
+          <p class="text-slate-300">Мы верим, что каждый город — это бесконечный квест с нелинейным сюжетом. Наша миссия — дать тебе ключи от всех дверей, даже тех, что не существуют.</p>
+          <p class="text-slate-300 mt-2">Никаких платных функций, подписок и компромиссов. Только твой путь. Только хардкор.</p>
+        </article>
+        <aside class="rounded-2xl p-4 bg-white/5 backdrop-blur-xl ring-1 ring-white/15 grid place-items-center">
+          <img src="../assets/logo.svg" alt="Командная иллюстрация / логотип" class="rounded-xl shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_20px_40px_rgba(0,0,0,0.45)]" />
+        </aside>
+      </div>
+    </section>
+
+    <section class="py-4">
+      <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <article class="rounded-2xl p-5 bg-white/5 backdrop-blur-xl ring-1 ring-white/15 shadow-xl">
+          <div class="text-cyan-300 text-2xl mb-1">01</div>
+          <h3 class="font-semibold">Интересы</h3>
+          <p class="text-slate-400">Ты выбираешь, что реально зажигает: стрит‑арт, клубы, парки, индустриальные локации.</p>
+        </article>
+        <article class="rounded-2xl p-5 bg-white/5 backdrop-blur-xl ring-1 ring-white/15 shadow-xl">
+          <div class="text-cyan-300 text-2xl mb-1">02</div>
+          <h3 class="font-semibold">AI‑мясорубка</h3>
+          <p class="text-slate-400">Алгоритм собирает карту и точки по твоему запросу из разных источников.</p>
+        </article>
+        <article class="rounded-2xl p-5 bg-white/5 backdrop-blur-xl ring-1 ring-white/15 shadow-xl">
+          <div class="text-cyan-300 text-2xl mb-1">03</div>
+          <h3 class="font-semibold">Без рамок</h3>
+          <p class="text-slate-400">Без гидов и шаблонов. Иди и смотри — твой город, твои правила.</p>
+        </article>
+        <article class="rounded-2xl p-5 bg-white/5 backdrop-blur-xl ring-1 ring-white/15 shadow-xl">
+          <div class="text-cyan-300 text-2xl mb-1">✦</div>
+          <h3 class="font-semibold">Результат</h3>
+          <p class="text-slate-400">Небанальные маршруты, которые хочется пройти и повторить.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="mt-6 backdrop-blur-xl bg-white/5 ring-1 ring-white/15">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between gap-3">
+      <div class="text-sm">© <span id="year"></span> yanqwip</div>
+      <div class="flex gap-2">
+        <a class="w-9 h-9 grid place-items-center rounded-xl ring-1 ring-white/15 text-slate-300 hover:text-white hover:bg-white/5 transition" href="#" aria-label="GitHub">GH</a>
+        <a class="w-9 h-9 grid place-items-center rounded-xl ring-1 ring-white/15 text-slate-300 hover:text-white hover:bg-white/5 transition" href="#" aria-label="Telegram">TG</a>
+        <a class="w-9 h-9 grid place-items-center rounded-xl ring-1 ring-white/15 text-slate-300 hover:text-white hover:bg-white/5 transition" href="#" aria-label="Twitter">TW</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./main.js"></script>
+</body>
+</html>

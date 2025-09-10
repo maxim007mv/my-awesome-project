@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>yanqwip — Сгенерировать маршрут</title>
+  <meta name="description" content="Опиши свои интересы и город — yanqwip сгенерирует небанальный маршрут с точками и картой." />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="yanqwip — Сгенерировать маршрут" />
+  <meta property="og:description" content="Выбери интересы. Получи маршрут. Иди и смотри." />
+  <meta property="og:image" content="/assets/og-image.svg" />
+  <meta property="og:url" content="https://yanqwip.ru/generate.html" />
+  <meta property="og:site_name" content="yanqwip" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" content="#0b0f14" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&family=Unbounded:wght@700;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: { fontFamily: { sans:['Inter','ui-sans-serif','system-ui'], poppins:['Poppins','Inter'], unbounded:['Unbounded','Poppins','Inter'] }, colors: { bg:'#0b0f14' } } } };
+  </script>
+  <link rel="icon" href="../assets/logo.svg" type="image/svg+xml" />
+</head>
+<body class="bg-bg text-slate-200 font-sans">
+  <div class="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
+    <div class="absolute -top-24 -left-24 h-[24rem] w-[24rem] rounded-full bg-fuchsia-600/20 blur-[96px]"></div>
+    <div class="absolute -right-16 top-10 h-[20rem] w-[20rem] rounded-full bg-cyan-400/20 blur-[96px]"></div>
+  </div>
+
+  <header class="sticky top-0 z-50 backdrop-blur-xl bg-white/5 ring-1 ring-white/15">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a class="inline-flex items-center gap-2" href="./index.html" aria-label="yanqwip, на главную">
+        <img class="h-8 w-8 rounded-md object-cover drop-shadow-[0_0_10px_rgba(124,58,237,0.6)]" src="https://i.ibb.co/JWLty2jM/photo-2025-07-01-08-51-19-2.jpg" alt="Логотип yanqwip" />
+        <span class="font-unbounded text-lg font-bold tracking-tight">yanqwip</span>
+      </a>
+      <button class="nav-toggle md:hidden px-3 py-2 rounded-xl bg-slate-900/60 ring-1 ring-white/15 text-slate-100 shadow-lg" aria-label="Открыть меню" aria-expanded="false">☰</button>
+      <nav class="main-nav hidden md:block absolute md:static right-4 top-16 md:top-auto">
+        <ul class="md:flex md:gap-2 bg-slate-900/70 md:bg-transparent p-2 md:p-0 rounded-2xl md:rounded-none ring-1 ring-white/15 md:ring-0">
+          <li><a class="block px-3 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-white/5 hover:ring-1 hover:ring-white/15 transition" href="./index.html">Главная</a></li>
+          <li><a class="block px-3 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-white/5 hover:ring-1 hover:ring-white/15 transition" href="./about.html">О нас</a></li>
+          <li><a class="block px-3 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-white/5 hover:ring-1 hover:ring-white/15 transition" href="./contacts.html">Контакты</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <nav class="max-w-7xl mx-auto px-4 mt-4" aria-label="Хлебные крошки">
+      <ol class="flex gap-2 text-slate-400 text-sm">
+        <li><a class="text-cyan-300 hover:text-cyan-200" href="./index.html">Главная</a></li>
+        <li>→</li>
+        <li>Маршрут</li>
+      </ol>
+    </nav>
+
+    <section class="py-8">
+      <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-6 items-stretch">
+        <article class="rounded-2xl p-6 bg-white/5 backdrop-blur-xl ring-1 ring-white/15 shadow-xl" id="form">
+          <h1 class="font-unbounded text-2xl mb-4">Сгенерировать маршрут</h1>
+
+          <!-- Wizard -->
+          <div id="route-wizard" class="grid gap-5">
+            <!-- Progress -->
+            <div class="w-full h-2 bg-white/10 rounded-full overflow-hidden">
+              <div id="wizard-progress" class="h-2 bg-gradient-to-r from-violet-500 to-cyan-400" style="width: 10%"></div>
+            </div>
+            <div id="wizard-step-label" class="text-sm text-slate-400">Шаг 1 из 10</div>
+
+            <!-- Steps -->
+            <div data-step="1" class="grid gap-3">
+              <div class="font-semibold">1) Когда начинаем прогулку?</div>
+              <div class="grid gap-2 sm:grid-cols-3">
+                <label class="inline-flex items-center gap-2"><input type="radio" name="time" value="утром" class="accent-cyan-400"/> Утром</label>
+                <label class="inline-flex items-center gap-2"><input type="radio" name="time" value="днём" class="accent-cyan-400"/> Днём</label>
+                <label class="inline-flex items-center gap-2"><input type="radio" name="time" value="вечером" class="accent-cyan-400"/> Вечером</label>
+              </div>
+              <input id="time-free" type="text" placeholder="Свободная форма: 10:00 / после обеда / вечером" class="px-3 py-2 rounded-xl bg-slate-900/60 text-slate-100 ring-1 ring-white/15 focus:outline-none focus:ring-2 focus:ring-cyan-400/50" />
+            </div>
+
+            <div data-step="2" class="hidden grid gap-3">
+              <div class="font-semibold">2) Сколько времени есть?</div>
+              <div class="grid gap-2 sm:grid-cols-3">
+                <label class="inline-flex items-center gap-2"><input type="radio" name="duration" value="2-3 часа" class="accent-cyan-400"/> 2–3 часа</label>
+                <label class="inline-flex items-center gap-2"><input type="radio" name="duration" value="4-5 часов" class="accent-cyan-400"/> 4–5 часов</label>
+                <label class="inline-flex items-center gap-2"><input type="radio" name="duration" value="целый день" class="accent-cyan-400"/> Целый день</label>
+              </div>
+            </div>
+
+            <div data-step="3" class="hidden grid gap-3">
+              <div class="font-semibold">3) Какой тип прогулки?</div>
+              <div class="grid gap-2 sm:grid-cols-2">
+                <label class="inline-flex items-center gap-2"><input type="radio" name="type" value="культурная" class="accent-cyan-400"/> Культурная</label>
+                <label class="inline-flex items-center gap-2"><input type="radio" name="type" value="историческая" class="accent-cyan-400"/> Историческая</label>
+                <label class="inline-flex items-center gap-2"><input type="radio" name="type" value="развлекательная" class="accent-cyan-400"/> Развлекательная</label>
+                <label class="inline-flex items-center gap-2"><input type="radio" name="type" value="романтическая" class="accent-cyan-400"/> Романтическая</label>
+                <label class="inline-flex items-center gap-2"><input type="radio" name="type" value="семейная" class="accent-cyan-400"/> Семейная</label>
+                <label class="inline-flex items-center gap-2"><input type="radio" name="type" value="спортивная" class="accent-cyan-400"/> Спортивная</label>
+                <label class="inline-flex items-center gap-2"><input type="radio" name="type" value="гастрономическая" class="accent-cyan-400"/> Гастрономическая</label>
+                <label class="inline-flex items-center gap-2"><input type="radio" name="type" value="шопинг" class="accent-cyan-400"/> Шопинг</label>
+                <label class="inline-flex items-center gap-2 sm:col-span-2"><input type="radio" name="type" value="другое" class="accent-cyan-400"/> Другое</label>
+              </div>
+            </div>
+
+            <div data-step="4" class="hidden grid gap-3">
+              <div class="font-semibold">4) Откуда стартуем? (город + место)</div>
+              <input id="start-point" type="text" placeholder="Москва, м. Китай‑город / ул. Арбат, 45 / Красная площадь" class="px-3 py-2 rounded-xl bg-slate-900/60 text-slate-100 ring-1 ring-white/15 focus:outline-none focus:ring-2 focus:ring-cyan-400/50" />
+            </div>
+
+            <div data-step="5" class="hidden grid gap-3">
+              <div class="font-semibold">5) Бюджет</div>
+              <div class="grid gap-2 sm:grid-cols-2">
+                <label class="inline-flex items-center gap-2"><input type="radio" name="budget" value="эконом" class="accent-cyan-400"/> Эконом</label>
+                <label class="inline-flex items-center gap-2"><input type="radio" name="budget" value="средний" class="accent-cyan-400"/> Средний</label>
+                <label class="inline-flex items-center gap-2"><input type="radio" name="budget" value="премиум" class="accent-cyan-400"/> Премиум</label>
+                <label class="inline-flex items-center gap-2"><input type="radio" name="budget" value="не ограничен" class="accent-cyan-400"/> Не ограничен</label>
+              </div>
+            </div>
+
+            <div data-step="6" class="hidden grid gap-3">
+              <div class="font-semibold">6) Конкретные места/районы?</div>
+              <textarea id="preferences" rows="4" placeholder="Перечислите места/районы/парки/музеи или напишите ‘нет’" class="px-3 py-2 rounded-xl bg-slate-900/60 text-slate-100 ring-1 ring-white/15 focus:outline-none focus:ring-2 focus:ring-cyan-400/50"></textarea>
+            </div>
+
+            <div data-step="7" class="hidden grid gap-3">
+              <div class="font-semibold">7) Активности (выберите несколько)</div>
+              <div class="grid gap-2 sm:grid-cols-2">
+                <label class="inline-flex items-center gap-2"><input type="checkbox" name="activities" value="музеи и выставки" class="accent-cyan-400"/> Музеи и выставки</label>
+                <label class="inline-flex items-center gap-2"><input type="checkbox" name="activities" value="архитектура и памятники" class="accent-cyan-400"/> Архитектура и памятники</label>
+                <label class="inline-flex items-center gap-2"><input type="checkbox" name="activities" value="парки и набережные" class="accent-cyan-400"/> Парки и набережные</label>
+                <label class="inline-flex items-center gap-2"><input type="checkbox" name="activities" value="шопинг" class="accent-cyan-400"/> Шопинг</label>
+                <label class="inline-flex items-center gap-2"><input type="checkbox" name="activities" value="фото‑места" class="accent-cyan-400"/> Фото‑места</label>
+                <label class="inline-flex items-center gap-2"><input type="checkbox" name="activities" value="кафе и рестораны" class="accent-cyan-400"/> Кафе и рестораны</label>
+                <label class="inline-flex items-center gap-2"><input type="checkbox" name="activities" value="аттракционы" class="accent-cyan-400"/> Аттракционы</label>
+                <label class="inline-flex items-center gap-2"><input type="checkbox" name="activities" value="театры и концерты" class="accent-cyan-400"/> Театры и концерты</label>
+                <label class="inline-flex items-center gap-2 sm:col-span-2"><input type="checkbox" name="activities" value="просто погулять" class="accent-cyan-400"/> Просто погулять</label>
+              </div>
+            </div>
+
+            <div data-step="8" class="hidden grid gap-3">
+              <div class="font-semibold">8) Питание</div>
+              <div class="grid gap-2 sm:grid-cols-2">
+                <label class="inline-flex items-center gap-2"><input type="radio" name="food" value="бюджетные места" class="accent-cyan-400"/> Бюджетные места</label>
+                <label class="inline-flex items-center gap-2"><input type="radio" name="food" value="средний уровень" class="accent-cyan-400"/> Средний уровень</label>
+                <label class="inline-flex items-center gap-2"><input type="radio" name="food" value="премиум" class="accent-cyan-400"/> Премиум</label>
+                <label class="inline-flex items-center gap-2"><input type="radio" name="food" value="не нужно" class="accent-cyan-400"/> Не нужно</label>
+              </div>
+              <input id="food-special" type="text" placeholder="Особые предпочтения: вегетарианское, безглютеновое и т.д." class="px-3 py-2 rounded-xl bg-slate-900/60 text-slate-100 ring-1 ring-white/15 focus:outline-none focus:ring-2 focus:ring-cyan-400/50" />
+            </div>
+
+            <div data-step="9" class="hidden grid gap-3">
+              <div class="font-semibold">9) Транспорт</div>
+              <div class="grid gap-2 sm:grid-cols-2">
+                <label class="inline-flex items-center gap-2"><input type="radio" name="transport" value="пешком" class="accent-cyan-400"/> Пешком</label>
+                <label class="inline-flex items-center gap-2"><input type="radio" name="transport" value="общественный транспорт" class="accent-cyan-400"/> Общественный транспорт</label>
+                <label class="inline-flex items-center gap-2"><input type="radio" name="transport" value="такси/каршеринг" class="accent-cyan-400"/> Такси/каршеринг</label>
+                <label class="inline-flex items-center gap-2"><input type="radio" name="transport" value="велосипед/самокат" class="accent-cyan-400"/> Велосипед/самокат</label>
+                <label class="inline-flex items-center gap-2 sm:col-span-2"><input type="radio" name="transport" value="смешанный" class="accent-cyan-400"/> Смешанный</label>
+              </div>
+            </div>
+
+            <div data-step="10" class="hidden grid gap-3">
+              <div class="font-semibold">10) Ограничения / пожелания</div>
+              <textarea id="limits" rows="4" placeholder="Доступная среда, с детьми, избегать толп, с питомцем, некурящие зоны и т.д." class="px-3 py-2 rounded-xl bg-slate-900/60 text-slate-100 ring-1 ring-white/15 focus:outline-none focus:ring-2 focus:ring-cyan-400/50"></textarea>
+            </div>
+
+            <!-- Controls -->
+            <div class="flex items-center justify-between mt-2">
+              <button id="wizard-prev" class="px-4 py-2 rounded-xl text-slate-200 ring-1 ring-white/20 hover:bg-white/5 disabled:opacity-40" disabled>Назад</button>
+              <button id="wizard-next" class="px-4 py-2 rounded-xl font-semibold text-slate-900 bg-gradient-to-r from-violet-500 to-cyan-400 shadow-[0_0_28px_rgba(124,58,237,0.35),0_0_48px_rgba(34,211,238,0.25)] hover:shadow-[0_0_40px_rgба(124,58,237,0.45),0_0_60px_rgба(34,211,238,0.35)] transition">Далее</button>
+            </div>
+          </div>
+
+          <!-- Result/Progress -->
+          <div id="route-progress" class="mt-4 text-slate-400 text-sm hidden">🔄 Генерирую ваш персональный маршрут...</div>
+          <div id="route-result" class="mt-3 hidden"></div>
+        </article>
+        <aside class="rounded-2xl p-4 bg-white/5 backdrop-blur-xl ring-1 ring-white/15 grid place-items-center">
+          <img src="../assets/map-placeholder.svg" alt="Карта или схема проезда (заглушка)" class="rounded-xl shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_20px_40px_rgba(0,0,0,0.45)]" />
+          <div class="text-slate-400 mt-2">Здесь появятся точки маршрута и ссылка на карту</div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="mt-6 backdrop-blur-xl bg-white/5 ring-1 ring-white/15">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between gap-3">
+      <div class="text-sm">© <span id="year"></span> yanqwip</div>
+      <div class="flex gap-2">
+        <a class="w-9 h-9 grid place-items-center rounded-xl ring-1 ring-white/15 text-slate-300 hover:text-white hover:bg-white/5 transition" href="#" aria-label="GitHub">GH</a>
+        <a class="w-9 h-9 grid place-items-center rounded-xl ring-1 ring-white/15 text-slate-300 hover:text-white hover:bg-white/5 transition" href="#" aria-label="Telegram">TG</a>
+        <a class="w-9 h-9 grid place-items-center rounded-xl ring-1 ring-white/15 text-slate-300 hover:text-white hover:bg-white/5 transition" href="#" aria-label="Twitter">TW</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./main.js"></script>
+</body>
+</html>
