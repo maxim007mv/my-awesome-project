@@ -1,0 +1,6 @@
+[build]
+  publish = "scr"
+  command = ""
+
+# If you later add forms or need headers, they can be configured here.
+

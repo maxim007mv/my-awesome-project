@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Большой теннис — обучение взрослых | Tennis Go School</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Unbounded:wght@400;500;700;800;900&display=swap" rel="stylesheet"/>
+  <meta name="tg-gateway" content="http://45.144.28.25/tg/send"/>
+
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;width:100%;max-width:100%;overflow-x:hidden}
+    body{overflow-x:hidden;position:relative}
+    img,video,canvas,svg,iframe{max-width:100%;height:auto;display:block}
+    :root{--background-color:#0A0A0A;--text-color:#EAEAEA;--accent-color:#00F5D4;--glass-bg:rgba(20,20,20,.5);--glass-border:rgba(255,255,255,.1)}
+    body{font-family:'Inter',sans-serif;background:var(--background-color) url('https://images.unsplash.com/photo-1594755388859-158381b1d743?q=80&w=2574&auto=format&fit=crop') center/cover fixed;color:var(--text-color);line-height:1.5}
+    @media (max-width:1024px){body{background-attachment:scroll}}
+    .glass-card{background:var(--glass-bg);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid var(--glass-border);border-radius:2rem;box-shadow:0 8px 32px rgba(0,0,0,.37)}
+    h1,h2,h3,h4,.font-display{font-family:'Unbounded',sans-serif}
+    .btn-primary{background:var(--accent-color);color:#000;font-weight:600;padding:.75rem 2rem;border-radius:2rem;display:inline-block;transition:.3s}
+    .btn-primary:hover{transform:translateY(-3px) scale(1.03); box-shadow:0 10px 20px rgba(0,245,212,.2)}
+    .container{width:100%;max-width:1200px;margin:0 auto;padding:0 1rem}
+    section{padding:4rem 0}
+    .hero-title{font-size:clamp(2.2rem,5.5vw,4rem);font-weight:800;letter-spacing:-.02em}
+    @media (max-width:768px){.glass-card{border-radius:1.5rem;padding:1.25rem!important}section{padding:2rem 0}}
+  </style>
+</head>
+<body class="antialiased">
+
+  <!-- Header -->
+  <header class="sticky top-0 z-50 p-4">
+    <div class="container">
+      <nav class="glass-card px-4 md:px-8 py-3 flex justify-between items-center">
+        <a href="index.html#home" class="text-xl md:text-2xl font-bold text-white font-display">Tennis Go</a>
+        <div class="hidden md:flex space-x-8 text-sm items-center">
+          <a href="groups.html" class="hover:text-gray-300">Групповые</a>
+          <a href="index.html#schedule" class="hover:text-gray-300">Локации</a>
+          <a href="index.html#faq" class="hover:text-gray-300">FAQ</a>
+        </div>
+        <a href="#contact-form" class="hidden md:block btn-primary text-sm">Записаться</a>
+        <button id="burger-btn" class="md:hidden text-white" aria-label="Открыть меню">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="fixed top-0 right-0 h-full w-full max-w-xs bg-black/80 backdrop-blur-lg z-50 p-8 transform translate-x-full transition" aria-hidden="true">
+    <button id="close-menu-btn" class="absolute top-6 right-6 text-white text-3xl" aria-label="Закрыть меню">&times;</button>
+    <div class="flex flex-col space-y-8 mt-16 text-2xl text-center">
+      <a href="groups.html" class="text-white hover:text-gray-300 menu-link">Групповые</a>
+      <a href="index.html#schedule" class="text-white hover:text-gray-300 menu-link">Локации</a>
+      <a href="#contact-form" class="btn-primary menu-link">Записаться</a>
+    </div>
+  </div>
+
+  <main>
+    <!-- Breadcrumbs -->
+    <section class="pt-8 pb-0">
+      <div class="container">
+        <nav aria-label="Хлебные крошки" class="text-sm text-gray-300">
+          <a href="index.html" class="hover:text-white">Главная</a> <span class="mx-2">→</span> <span>Обучение взрослых</span>
+        </nav>
+      </div>
+    </section>
+
+    <!-- Hero -->
+    <section class="py-8">
+      <div class="container">
+        <div class="glass-card p-8 md:p-12 text-center">
+          <h1 class="hero-title font-display">Большой теннис для взрослых — программа с нуля и для продолжающих</h1>
+          <p class="mt-4 text-gray-300 max-w-3xl mx-auto">
+            Подберём нагрузку под ваш уровень, цели и график. Мини-группы до 4 человек, инвентарь включён, перенос тренировки — за 24 часа до начала.
+          </p>
+          <div class="mt-6 flex flex-wrap gap-3 justify-center">
+            <a href="#contact-form" class="btn-primary">Пробный урок — 2000 ₽</a>
+            <a href="#benefits" class="btn-primary" style="background:#111;color:#EAEAEA;border:1px solid var(--glass-border)">Почему мы</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Почему теннис для взрослых -->
+    <section id="why">
+      <div class="container grid lg:grid-cols-2 gap-8">
+        <div class="glass-card p-8">
+          <h2 class="text-2xl md:text-3xl font-display font-bold mb-4">Зачем взрослым теннис</h2>
+          <ul class="text-gray-300 space-y-2">
+            <li>• Кардионагрузка и улучшение самочувствия.</li>
+            <li>• Тело: координация, гибкость, сила, контроль движений.</li>
+            <li>• Разгрузка от рутин и стресса, переключение внимания.</li>
+            <li>• Тактика и стратегия — прокачка мышления за счёт игровых сценариев.</li>
+          </ul>
+          <p class="text-gray-400 text-xs mt-4">Перед началом тренировок рекомендуем консультацию с врачом.</p>
+        </div>
+        <div class="glass-card p-8">
+          <h2 class="text-2xl md:text-3xl font-display font-bold mb-4">Форматы занятий</h2>
+          <div class="grid md:grid-cols-3 gap-4">
+            <div><h3 class="font-display font-semibold">Индивидуально</h3><p class="text-gray-400 text-sm">Максимальный прогресс и работа под цели.</p></div>
+            <div><h3 class="font-display font-semibold">Сплит (2+1)</h3><p class="text-gray-400 text-sm">Тренировка с партнёром, тренер — с вами.</p></div>
+            <div><h3 class="font-display font-semibold">Группа</h3><p class="text-gray-400 text-sm">До 4 человек. Больше игровой практики.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Преимущества школы -->
+    <section id="benefits">
+      <div class="container">
+        <div class="glass-card p-8 md:p-12">
+          <h2 class="text-2xl md:text-3xl font-display font-bold mb-6">Что получаете в Tennis Go</h2>
+          <div class="grid md:grid-cols-3 gap-6 text-sm md:text-base">
+            <div><h3 class="font-display font-semibold mb-1">Мини-группы</h3><p class="text-gray-300">До 4 человек — тренер успевает отработать технику с каждым.</p></div>
+            <div><h3 class="font-display font-semibold mb-1">Инвентарь включён</h3><p class="text-gray-300">Ракетки и мячи предоставляем на месте.</p></div>
+            <div><h3 class="font-display font-semibold mb-1">Перенос уроков</h3><p class="text-gray-300">Перенос возможен при предупреждении за 24 часа.</p></div>
+            <div><h3 class="font-display font-semibold mb-1">Опыт тренеров</h3><p class="text-gray-300">Работает команда с большим стажем.</p></div>
+            <div><h3 class="font-display font-semibold mb-1">Подбор по уровню</h3><p class="text-gray-300">Группы формируем по подготовке, чтобы темп был комфортен.</p></div>
+            <div><h3 class="font-display font-semibold mb-1">Локации и парковка</h3><p class="text-gray-300">Несколько кортов в городе, рядом — парковка.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- План обучения -->
+    <section id="program">
+      <div class="container grid lg:grid-cols-2 gap-8">
+        <div class="glass-card p-8">
+          <h2 class="text-2xl md:text-3xl font-display font-bold mb-4">План для начинающих</h2>
+          <ul class="text-gray-300 space-y-2">
+            <li>• Базовая техника: форхенд, бэкхенд, подача.</li>
+            <li>• Передвижения по корту и устойчивость.</li>
+            <li>• Координация и реакция.</li>
+            <li>• Простые комбинации и розыгрыши.</li>
+            <li>• Игра на счёт и контроль мяча.</li>
+          </ul>
+        </div>
+        <div class="glass-card p-8">
+          <h2 class="text-2xl md:text-3xl font-display font-bold mb-4">План для продолжающих</h2>
+          <ul class="text-gray-300 space-y-2">
+            <li>• Шлифовка техники и стабильности ударов.</li>
+            <li>• Тактика: построение розыгрыша, вариативность.</li>
+            <li>• Подача/приём, завершение у сетки.</li>
+            <li>• Выносливость и темп розыгрышей.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Удобный график -->
+    <section id="schedule">
+      <div class="container">
+        <div class="glass-card p-8 md:p-12">
+          <h2 class="text-2xl md:text-3xl font-display font-bold mb-4">График занятий</h2>
+          <div class="grid md:grid-cols-2 gap-6 text-center">
+            <div>
+              <h3 class="font-display font-semibold">Будни</h3>
+              <p class="text-gray-300 mt-2">19:00–23:00</p>
+            </div>
+            <div>
+              <h3 class="font-display font-semibold">Выходные</h3>
+              <p class="text-gray-300 mt-2">11:00–18:00</p>
+            </div>
+          </div>
+          <p class="text-gray-400 text-sm mt-4">Индивидуальные слоты согласуются с администратором — подберём время под ваш режим.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Тренеры (короткий блок) -->
+    <section id="coaches">
+      <div class="container">
+        <div class="glass-card p-8">
+          <h2 class="text-2xl md:text-3xl font-display font-bold mb-6">Тренерский состав</h2>
+          <div class="grid md:grid-cols-2 gap-6 text-sm md:text-base">
+            <div>
+              <h3 class="font-display font-semibold mb-1">Габидулина Альмира</h3>
+              <p class="text-gray-300">Тренер, опыт ~3,5 года.</p>
+            </div>
+            <div>
+              <h3 class="font-display font-semibold mb-1">Сафронов Кирилл</h3>
+              <p class="text-gray-300">Тренер, опыт ~7 лет.</p>
+            </div>
+            <div>
+              <h3 class="font-display font-semibold mb-1">Сопиков Семён</h3>
+              <p class="text-gray-300">Тренер, опыт ~7 лет.</p>
+            </div>
+            <div>
+              <h3 class="font-display font-semibold mb-1">Иван Сергейчик</h3>
+              <p class="text-gray-300">КМС; игровой ~11 лет; действует на турнирах РТТ/TE/ITF.</p>
+            </div>
+            <div>
+              <h3 class="font-display font-semibold mb-1">Никита Позднышев</h3>
+              <p class="text-gray-300">КМС; тренерский ~6 лет; международные стажировки; владеет англ.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+      <div class="container grid md:grid-cols-2 gap-8">
+        <div class="glass-card p-6">
+          <h3 class="font-display font-bold text-xl mb-2">Инвентарь входит в стоимость?</h3>
+          <p class="text-gray-300">Да, ракетки и мячи предоставляются на тренировке.</p>
+        </div>
+        <div class="glass-card p-6">
+          <h3 class="font-display font-bold text-xl mb-2">Если пропущу урок?</h3>
+          <p class="text-gray-300">Перенос возможен при уведомлении минимум за 24 часа; при более позднем — занятие засчитывается.</p>
+        </div>
+        <div class="glass-card p-6">
+          <h3 class="font-display font-bold text-xl mb-2">Как формируются группы?</h3>
+          <p class="text-gray-300">По уровню подготовки, до 4 человек в группе.</p>
+        </div>
+        <div class="glass-card p-6">
+          <h3 class="font-display font-bold text-xl mb-2">Как записаться?</h3>
+          <p class="text-gray-300">Оставьте заявку на сайте / напишите в WhatsApp — согласуем время и формат.</p>
+        </div>
+        <div class="glass-card p-6">
+          <h3 class="font-display font-bold text-xl mb-2">Что взять с собой?</h3>
+          <p class="text-gray-300">Спортивную форму и кроссовки; инвентарь выдаём.</p>
+        </div>
+        <div class="glass-card p-6">
+          <h3 class="font-display font-bold text-xl mb-2">Как часто тренироваться?</h3>
+          <p class="text-gray-300">Оптимально 2 раза в неделю; для ускорения прогресса добавляйте индивидуальные сессии.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Контактная форма -->
+    <section id="contact-form">
+      <div class="container">
+        <div class="glass-card p-8 md:p-12 max-w-3xl mx-auto text-center">
+          <h2 class="text-2xl md:text-3xl font-display font-bold mb-2">Записаться на пробный урок</h2>
+          <p class="text-gray-300 mb-6">2000 ₽ • 60 минут • инвентарь включён</p>
+          <form id="formAdults" class="space-y-4" novalidate>
+            <input id="name" name="name" class="w-full p-3 bg-black/20 border border-gray-600 rounded-full" placeholder="Ваше имя" required minlength="2"/>
+            <input id="phone" name="phone" class="w-full p-3 bg-black/20 border border-gray-600 rounded-full" placeholder="+7 (900) 000-00-00" required pattern="^\\+7 \\(\\d{3}\\) \\d{3}-\\d{2}-\\d{2}$"/>
+            <textarea id="msg" name="msg" rows="4" class="w-full p-3 bg-black/20 border border-gray-600 rounded-2xl" placeholder="Удобное время, формат (инд./группа)" required></textarea>
+            <button class="btn-primary w-full">Отправить заявку</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="py-8 md:py-12">
+    <div class="container text-center text-gray-500 text-xs md:text-sm">
+      <div class="mb-4 flex flex-wrap justify-center">
+        <a href="#" class="px-2 md:px-3 py-1 hover:text-white">Пользовательское соглашение</a>
+        <a href="#" class="px-2 md:px-3 py-1 hover:text-white">Политика обработки данных</a>
+      </div>
+      <p class="text-xs md:text-sm mb-4">ИП Тютюнников Андрей Владиславович | ИНН: [номер] | ОГРНИП: [номер]</p>
+      <p class="text-xs">&copy; 2020–2025 Tennis Go School. Все права защищены.</p>
+    </div>
+  </footer>
+
+  <dialog id="ok" class="rounded-2xl p-0 backdrop:bg-black/60">
+    <div class="glass-card p-8"><h3 class="text-2xl font-display mb-2">Спасибо!</h3><p class="text-gray-300 mb-6">Заявка отправлена.</p><div class="text-right"><button id="okClose" class="btn-primary">Ок</button></div></div>
+  </dialog>
+
+  <script>
+    // mobile menu
+    const mm=document.getElementById('mobile-menu');const openBtn=document.getElementById('burger-btn');const closeBtn=document.getElementById('close-menu-btn');const links=document.querySelectorAll('.menu-link');
+    function open(){mm.style.transform='translateX(0)';mm.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';}
+    function close(){mm.style.transform='translateX(100%)';mm.setAttribute('aria-hidden','true');document.body.style.overflow='auto';}
+    openBtn.addEventListener('click',open);closeBtn.addEventListener('click',close);links.forEach(l=>l?.addEventListener('click',close));
+
+    // phone mask
+    const phone=document.getElementById('phone');
+    phone?.addEventListener('input',()=>{const d=phone.value.replace(/\D/g,'').slice(0,11).replace(/^8/,'7');const p=[];if(d.length)p.push('+7');if(d.length>1)p.push(' ('+d.slice(1,4));if(d.length>=4)p[p.length-1]+=')';if(d.length>=5)p.push(' '+d.slice(4,7));if(d.length>=8)p.push('-'+d.slice(7,9));if(d.length>=10)p.push('-'+d.slice(9,11));phone.value=p.join('');});
+
+    // form
+    const f=document.getElementById('formAdults'), dlg=document.getElementById('ok'), okClose=document.getElementById('okClose');
+    f?.addEventListener('submit',e=>{e.preventDefault(); if(!f.checkValidity()){f.reportValidity(); return;} f.reset(); dlg.showModal();});
+    okClose?.addEventListener('click',()=>dlg.close());
+  </script>
+
+  <!-- Telegram bot integration: send all form submissions -->
+  <script>
+    (function(){
+      const TG_BOT_TOKEN = "";
+      const TG_CHAT_ID = "";
+    })();
+  </script>
+
+  <!-- Telegram bot: shared sender for all forms -->
+  <script src="js/telegram.js"></script>
+</body>
+</html>
