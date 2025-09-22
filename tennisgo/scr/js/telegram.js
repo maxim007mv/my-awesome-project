@@ -6,15 +6,15 @@
   window.__TG_FORM_SENDER__ = true;
 
   // Defaults (can be overridden as described above)
-  const TOKEN = (window.TG_BOT_TOKEN || '').trim() || '5826225693:AAH8ji34IeGmEa93X0O_0PDfLS7ojBGD_R0';
+  const TOKEN = (window.TG_BOT_TOKEN || '').trim() || '';
   let CHAT_ID = (window.TG_CHAT_ID || '').trim();
   if (!CHAT_ID) { try { CHAT_ID = (localStorage.getItem('TG_CHAT_ID') || '').trim(); } catch(_) {} }
   if (!CHAT_ID) { const meta = document.querySelector('meta[name="tg-chat-id"]'); CHAT_ID = (meta?.getAttribute('content') || '').trim(); }
-  if (!CHAT_ID) { CHAT_ID = '-1002907206668'; }
+  if (!CHAT_ID) { CHAT_ID = ''; }
 
   function warnOnce(msg){ if (window.__TG_WARNED__) return; window.__TG_WARNED__ = true; console.warn(msg); }
 
-  // Optional gateway (Python backend). Sources: window.TG_GATEWAY or <meta name="tg-gateway">
+  // 
   const GATEWAY = (function(){
     const meta = document.querySelector('meta[name="tg-gateway"]');
     const v = (window.TG_GATEWAY || meta?.getAttribute('content') || '').trim();
